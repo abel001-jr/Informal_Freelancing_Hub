@@ -1,0 +1,436 @@
+/* ── Form shell ─────────────────────────────────────────────────────────────── */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.loading {
+  padding: 40px 0;
+  color: #948790;
+  font-size: 13px;
+}
+
+.errorState {
+  padding: 20px 0;
+  color: #b42332;
+  font-size: 13px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.errorState button {
+  border: 1px solid #b42332;
+  border-radius: 7px;
+  padding: 7px 12px;
+  background: white;
+  color: #b42332;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+/* ── Status banner ──────────────────────────────────────────────────────────── */
+.statusBanner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  background: #f4e9df;
+  border: 1px solid #e8d5c4;
+  border-radius: 10px;
+  font-size: 12px;
+  color: #76513e;
+  margin-bottom: 6px;
+  line-height: 1.6;
+  flex-wrap: wrap;
+}
+.statusApproved {
+  background: #edf3ec;
+  border-color: #bbdbb4;
+  color: #166534;
+}
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #c6a68e;
+  flex-shrink: 0;
+}
+.dotApproved { background: #166534; }
+
+.rating {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 600;
+  color: #166534;
+}
+
+/* ── Section ────────────────────────────────────────────────────────────────── */
+.section {
+  padding: 32px 0;
+  border-bottom: 1px solid #eee7e0;
+}
+.section:last-of-type { border-bottom: none; }
+
+.sectionHead {
+  margin-bottom: 22px;
+}
+.sectionHead h2 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #29252b;
+  letter-spacing: -0.3px;
+  margin-bottom: 5px;
+}
+.sectionHead p {
+  font-size: 11px;
+  color: #948790;
+  line-height: 1.7;
+  max-width: 560px;
+}
+
+/* ── Two-column grid ────────────────────────────────────────────────────────── */
+.twoCol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 22px;
+  margin-bottom: 18px;
+}
+
+/* ── Label / input base ─────────────────────────────────────────────────────── */
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #786d77;
+  min-width: 0;
+}
+
+.form input[type="text"],
+.form input[type="url"],
+.form input[type="number"],
+.form input[type="month"],
+.form select,
+.form textarea {
+  display: block;
+  width: 100%;
+  padding: 11px 13px;
+  border: 1px solid #ded7df;
+  border-radius: 8px;
+  background: white;
+  color: #29252b;
+  font: 400 12px 'DM Sans', Arial, sans-serif;
+  transition: border-color 150ms, box-shadow 150ms;
+}
+.form input:focus,
+.form select:focus,
+.form textarea:focus {
+  outline: none;
+  border-color: #59336d;
+  box-shadow: 0 0 0 3px #59336d1a;
+}
+.form input:disabled,
+.form select:disabled,
+.form textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.form textarea { resize: vertical; min-height: 90px; }
+
+label small {
+  font-size: 10px;
+  font-weight: 400;
+  color: #948790;
+  margin-top: -2px;
+}
+
+.req { color: #b42332; }
+
+.fullLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #786d77;
+  margin-top: 12px;
+}
+
+.hint {
+  font-size: 10px;
+  color: #948790;
+  margin-top: 6px;
+}
+
+/* ── Availability toggle ────────────────────────────────────────────────────── */
+.availRow { margin-top: 4px; }
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  color: #29252b;
+  user-select: none;
+}
+.toggle input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.toggleTrack {
+  width: 40px;
+  height: 22px;
+  border-radius: 99px;
+  background: #d9cce0;
+  flex-shrink: 0;
+  position: relative;
+  transition: background 200ms;
+}
+.toggleTrack::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 1px 3px #0002;
+  transition: transform 200ms;
+}
+.toggle input:checked ~ .toggleTrack { background: #59336d; }
+.toggle input:checked ~ .toggleTrack::after { transform: translateX(18px); }
+.toggle input:focus-visible ~ .toggleTrack {
+  outline: 2px solid #59336d;
+  outline-offset: 2px;
+}
+.toggle > span {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.toggle > span small {
+  font-size: 10px;
+  font-weight: 400;
+  color: #948790;
+}
+
+/* ── Skills tag input ───────────────────────────────────────────────────────── */
+.skillsWrap { display: flex; flex-direction: column; gap: 8px; }
+
+.tagBox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1px solid #ded7df;
+  border-radius: 9px;
+  background: white;
+  min-height: 50px;
+  cursor: text;
+  transition: border-color 150ms, box-shadow 150ms;
+}
+.tagBox:focus-within {
+  border-color: #59336d;
+  box-shadow: 0 0 0 3px #59336d1a;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ede0f2;
+  color: #59336d;
+  border-radius: 99px;
+  padding: 4px 12px 4px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.tag button {
+  border: none;
+  background: none;
+  color: #9469a8;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  transition: color 150ms;
+}
+.tag button:hover { color: #b42332; }
+
+.tagInput {
+  flex: 1;
+  min-width: 140px;
+  border: none !important;
+  outline: none !important;
+  padding: 4px 0 !important;
+  box-shadow: none !important;
+  font-size: 12px;
+  background: transparent;
+  color: #29252b;
+}
+
+/* ── Cards (experience / education / portfolio) ─────────────────────────────── */
+.cardList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.card {
+  background: #fdfbfe;
+  border: 1px solid #e8e0d8;
+  border-radius: 12px;
+  padding: 20px 22px;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.cardBadge {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 99px;
+  background: #ede0f2;
+  color: #59336d;
+}
+.badgeEdu      { background: #f4e9df; color: #76513e; }
+.badgePortfolio { background: #edf3ec; color: #166534; }
+
+.removeBtn {
+  font-size: 11px;
+  color: #948790;
+  background: none;
+  border: 1px solid #e1d6e5;
+  border-radius: 7px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: color 150ms, border-color 150ms;
+}
+.removeBtn:hover { color: #b42332; border-color: #b42332; }
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 18px;
+}
+
+.checkLabel {
+  display: flex;
+  flex-direction: row !important;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: #786d77;
+  grid-column: 1 / -1;
+  cursor: pointer;
+}
+.checkLabel input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  accent-color: #59336d;
+  flex-shrink: 0;
+}
+
+.emptyList {
+  font-size: 12px;
+  color: #948790;
+  padding: 14px 0 10px;
+}
+
+.addBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 1.5px dashed #c6b4d0;
+  border-radius: 9px;
+  color: #59336d;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 10px 18px;
+  cursor: pointer;
+  transition: background 150ms, border-color 150ms;
+  width: 100%;
+  justify-content: center;
+}
+.addBtn:hover:not(:disabled) {
+  background: #f7f1fa;
+  border-color: #9469a8;
+}
+.addBtn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ── Save bar ───────────────────────────────────────────────────────────────── */
+.successMsg {
+  background: #edf3ec;
+  color: #166534;
+  border: 1px solid #bbdbb4;
+  border-radius: 9px;
+  padding: 12px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 4px;
+}
+.errorMsg {
+  background: #fce8eb;
+  color: #b42332;
+  border: 1px solid #fca5a5;
+  border-radius: 9px;
+  padding: 12px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.saveBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px 0 8px;
+  flex-wrap: wrap;
+}
+.saveHint {
+  font-size: 11px;
+  color: #948790;
+}
+.saveBtn {
+  background: #59336d;
+  color: white;
+  border: none;
+  border-radius: 9px;
+  padding: 12px 24px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 150ms;
+  white-space: nowrap;
+}
+.saveBtn:hover:not(:disabled) { background: #40204f; }
+.saveBtn:disabled { opacity: 0.55; cursor: not-allowed; }
+
+/* ── Responsive ─────────────────────────────────────────────────────────────── */
+@media (max-width: 680px) {
+  .twoCol      { grid-template-columns: 1fr; }
+  .cardGrid    { grid-template-columns: 1fr; }
+  .saveBar     { flex-direction: column; align-items: stretch; }
+  .saveBtn     { text-align: center; }
+}

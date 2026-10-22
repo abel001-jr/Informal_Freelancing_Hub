@@ -1,0 +1,90 @@
+.header {
+  height: 86px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 0 5.5%;
+  border-bottom: 1px solid #ece5de;
+  background: #fcf9f4;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  flex-shrink: 0;
+  font-family: 'DM Sans', Arial, sans-serif;
+}
+.brand { display: inline-flex; align-items: center; white-space: nowrap; font-family: Manrope, Arial, sans-serif; font-weight: 800; font-size: 21px; letter-spacing: -1px; color: #29252b; }
+.light { font-weight: 500; }
+.dot { color: #59336d; }
+.mark { width: 31px; height: 31px; display: inline-flex; justify-content: center; align-items: center; margin-right: 9px; border-radius: 9px; background: #59336d; color: white; font-size: 22px; font-weight: 500; letter-spacing: -4px; padding-right: 4px; }
+.mark span { font-size: 16px; align-self: flex-end; margin-bottom: 4px; }
+.navigation { display: flex; align-items: center; gap: 24px; font-size: 12px; font-weight: 500; }
+.navigation a { white-space: nowrap; }
+.navigation a:hover, .navigation a[aria-current='page'] { color: #59336d; }
+.navigation a[aria-current='page'] { text-decoration: underline; text-underline-offset: 6px; }
+.actions { display: flex; align-items: center; gap: 18px; margin-left: auto; }
+.header .textAction { padding: 0; border: 0; background: none; color: #59336d; font: inherit; font-size: 12px; cursor: pointer; white-space: nowrap; }
+.header .cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 13px 22px;
+  border: 1px solid #59336d;
+  border-radius: 15px;
+  background: #59336d;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 4px 8px 19px -3px rgb(64 32 79 / 22%);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition: color 250ms, border-color 250ms, box-shadow 250ms;
+}
+.header .cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 0;
+  border-radius: inherit;
+  background: #e1dbd7;
+  z-index: -1;
+  transition: width 250ms;
+}
+.header .cta:hover, .header .cta:focus-visible { color: #59336d; border-color: #e1dbd7; }
+.header .cta:hover::before, .header .cta:focus-visible::before { width: 100%; }
+.header .cta:active { box-shadow: 1px 3px 8px rgb(64 32 79 / 15%); }
+.header .cta svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.menuToggle, .mobileAccount { display: none; }
+.header a:focus-visible, .header button:focus-visible { outline: 2px solid #59336d; outline-offset: 4px; }
+@media (max-width: 1100px) {
+  .header { gap: 20px; padding: 0 4%; }
+  .navigation { gap: 16px; font-size: 11px; }
+  .actions { gap: 12px; }
+  .header .cta { padding: 11px 13px; font-size: 11px; }
+}
+@media (max-width: 900px) {
+  .header { height: 75px; gap: 16px; }
+  .brand { font-size: 18px; }
+  .navigation { gap: 12px; font-size: 10px; }
+  .header .cta { font-size: 10px; gap: 7px; padding: 10px; }
+  .header .textAction { font-size: 11px; }
+}
+@media (min-width: 681px) and (max-width: 900px) { .header .textAction { display: none; } }
+@media (max-width: 680px) {
+  .header { height: 72px; padding: 0 5%; gap: 14px; }
+  .brand { font-size: 19px; }
+  .menuToggle { display: flex; align-items: center; gap: 10px; margin-left: auto; background: none; border: 1px solid #e6dfd8; border-radius: 20px; padding: 8px 13px; font-size: 11px; color: #59336d; cursor: pointer; }
+  .actions { margin-left: 0; }
+  .header .cta { display: none; }
+  .header .textAction { font-size: 11px; }
+  .navigation { display: none; position: absolute; left: 0; right: 0; top: 72px; padding: 22px; background: #fcf9f4; border-bottom: 1px solid #e6dfd8; box-shadow: 0 8px 12px #40204f0b; }
+  .navigation[data-open='true'] { display: flex; align-items: stretch; flex-direction: column; gap: 20px; font-size: 13px; }
+  .mobileAccount { display: block; text-align: left; background: none; border: 0; padding: 0; color: #59336d; font: inherit; cursor: pointer; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header .cta, .header .cta::before { transition: none; }
+}

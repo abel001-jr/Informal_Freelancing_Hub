@@ -1,0 +1,170 @@
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 32px;
+}
+
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+.heading {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-top: 8px;
+}
+
+.search {
+  padding: 10px 16px;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  color: var(--text-primary);
+  min-width: 240px;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.search::placeholder { color: var(--pebble-base); }
+.search:focus {
+  outline: none;
+  border-color: var(--focus-ring);
+  box-shadow: 0 0 0 3px rgba(89,51,109,0.12);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 22px;
+}
+
+/* Freelancer card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+.card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+
+.cardHeader {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.avatar {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: var(--brand-gradient);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.meta { min-width: 0; }
+
+.name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.title {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Stars */
+.stars { display: flex; align-items: center; gap: 2px; }
+.starFilled { color: #D97706; font-size: 14px; }
+.starEmpty  { color: var(--pebble-base); font-size: 14px; }
+.ratingNum  { font-size: 12px; font-weight: 600; color: var(--text-muted); margin-left: 4px; }
+
+/* Bio */
+.bio {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Skills */
+.skills { display: flex; gap: 6px; flex-wrap: wrap; }
+.skill {
+  padding: 4px 10px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Footer */
+.cardFooter {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-light);
+  margin-top: auto;
+  flex-wrap: wrap;
+}
+
+.stat { display: flex; flex-direction: column; gap: 1px; }
+.stat strong { font-size: 16px; font-weight: 700; color: var(--text-primary); }
+.stat span   { font-size: 11px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+
+.available   { margin-left: auto; font-size: 12px; font-weight: 600; color: var(--success); background: var(--success-bg); padding: 4px 10px; border-radius: 99px; }
+.unavailable { margin-left: auto; font-size: 12px; font-weight: 600; color: var(--neutral);  background: var(--surface-muted); padding: 4px 10px; border-radius: 99px; }
+
+/* Misc */
+.empty {
+  padding: 48px;
+  text-align: center;
+  color: var(--text-muted);
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  font-size: 15px;
+}
+
+.retryBtn {
+  background: none; border: none; cursor: pointer;
+  color: var(--danger); font-weight: 600; text-decoration: underline; font-size: inherit;
+}
+
+@media (max-width: 640px) {
+  .page { padding: 32px 20px; }
+  .topBar { flex-direction: column; align-items: flex-start; }
+  .search { min-width: 0; width: 100%; }
+}

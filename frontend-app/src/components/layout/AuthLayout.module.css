@@ -1,0 +1,69 @@
+.root {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: clamp(16px, 4vh, 40px) 28px;
+  background: radial-gradient(ellipse at 20% 0%, #9469a8 0%, transparent 55%), linear-gradient(140deg, #74448a, #59336d 55%, #40204f);
+  isolation: isolate;
+}
+.card {
+  width: min(1100px, 100%);
+  min-height: min(640px, calc(100svh - 64px));
+  display: grid;
+  grid-template-columns: .95fr 1.05fr;
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #ffffff44;
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: 0 32px 80px #24102e40, 0 0 0 6px #ffffff05;
+}
+.card[data-page='register'] { width: min(1180px, 100%); grid-template-columns: .8fr 1.2fr; }
+.brand { display: flex; align-items: center; padding: 48px 40px; position: relative; isolation: isolate; }
+.brand::before { content: ''; position: absolute; z-index: -2; left: -35%; top: -18%; width: 140%; height: 125%; border-radius: 0 52% 52% 0; background: linear-gradient(145deg, #9469a8 0%, #74448a 35%, #59336d 75%, #40204f 100%); box-shadow: 12px 4px 30px #59336d08; }
+.brand::after { content: ''; position: absolute; z-index: -1; width: 210px; height: 210px; right: -25px; bottom: 30px; background: linear-gradient(145deg, #9469a8, #59336d); border-radius: 50%; box-shadow: 10px 15px 24px #40204f12; }
+.brandInner { max-width: 330px; position: relative; }
+.brandInner::before { content: ''; position: absolute; width: 250px; height: 250px; border-radius: 50%; background: #ffffff06; bottom: -290px; left: -120px; pointer-events: none; }
+.logo { display: inline-block; color: white; font-size: 19px; font-weight: 700; letter-spacing: -.6px; margin-bottom: 55px; }
+.welcome { font-size: 11px; font-weight: 700; letter-spacing: 3px; color: #f6f0e6; margin-bottom: 17px; }
+.headline { font-size: clamp(26px, 3vw, 38px); font-weight: 600; line-height: 1.25; letter-spacing: -1px; color: white; white-space: pre-line; margin-bottom: 20px; }
+.sub { color: #eee0f3; font-size: 12px; line-height: 1.9; max-width: 260px; }
+.brandFootnote { display: block; font-size: 9px; color: #d8bfdf; line-height: 1.8; margin-top: 40px; max-width: 210px; }
+.formPanel { display: flex; align-items: center; justify-content: center; position: relative; padding: 38px 52px; min-width: 0; }
+.formPanel::after { content: ''; position: absolute; width: 150px; height: 150px; background: #f1e8f5; border-radius: 50%; right: -85px; bottom: -90px; pointer-events: none; }
+.formInner { width: 100%; max-width: 420px; position: relative; z-index: 1; }
+.card[data-page='register'] .formInner { max-width: 530px; }
+.card[data-page='register'] .formPanel { padding: 26px 42px; }
+.backLink { display: inline-block; font-size: 10px; color: #8b7d8f; margin-bottom: 24px; }
+.backLink:hover { color: #59336d; }
+@media (max-width: 1000px) {
+  .root { padding: 24px; }
+  .brand { padding: 35px 28px; }
+  .formPanel { padding: 30px; }
+  .card[data-page='register'] { grid-template-columns: .65fr 1.35fr; }
+  .card[data-page='register'] .formPanel { padding: 25px; }
+  .brand::after { width: 160px; height: 160px; right: -15px; }
+  .headline { font-size: 28px; }
+}
+@media (max-width: 760px) {
+  .root { padding: 20px; }
+  .card, .card[data-page='register'] { grid-template-columns: 1fr; min-height: 0; max-width: 580px; }
+  .brand { padding: 22px 28px; background: linear-gradient(115deg, #74448a, #59336d); }
+  .brand::before, .brand::after, .brandInner::before, .welcome, .headline, .sub, .brandFootnote { display: none; }
+  .logo { margin: 0; font-size: 18px; }
+  .formPanel, .card[data-page='register'] .formPanel { padding: 25px 28px 30px; }
+  .backLink { margin-bottom: 17px; }
+}
+@media (max-width: 420px) {
+  .root { padding: 12px; }
+  .card { border-radius: 19px; }
+  .brand { padding: 17px 20px; }
+  .formPanel, .card[data-page='register'] .formPanel { padding: 20px; }
+}
+@media (max-height: 740px) and (min-width: 761px) {
+  .root { padding-top: 16px; padding-bottom: 16px; }
+  .backLink { margin-bottom: 14px; }
+  .card[data-page='register'] .formPanel { padding-top: 20px; padding-bottom: 20px; }
+  .logo { margin-bottom: 35px; }
+}

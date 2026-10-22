@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
+/* ── Design tokens ─────────────────────────────────────────────────────────── */
+:root {
+  /* Mauve brand scale */
+  --mauve-50:  #F7F1FA;
+  --mauve-100: #EDE0F2;
+  --mauve-200: #D8BFDF;
+  --mauve-300: #BC96C9;
+  --mauve-400: #9469A8;
+  --mauve-500: #59336D;
+  --mauve-600: #4B2A5D;
+  --mauve-700: #40204F;
+  --mauve-800: #32183F;
+  --mauve-900: #24102E;
+  --mauve-gradient-soft: #74448A;
+  --brand-gradient: linear-gradient(115deg, #40204F 0%, #59336D 55%, #74448A 100%);
+
+  /* Supporting palette */
+  --cream-light: #FCF9F4;
+  --cream-base:  #F6F0E6;
+  --cream-dark:  #EBE0D0;
+  --pebble-light: #E1DBD7;
+  --pebble-base:  #B9B0AA;
+  --pebble-dark:  #807771;
+  --tan-light: #F4E9DF;
+  --tan-base:  #C6A68E;
+  --tan-dark:  #947159;
+  --brown-light: #DCC5B5;
+  --brown-base:  #76513E;
+  --brown-dark:  #543628;
+
+  /* Semantic tokens — light theme */
+  --background:      #F6F0E6;
+  --surface:         #FFFFFF;
+  --surface-muted:   #F0E9E2;
+  --primary:         #59336D;
+  --primary-hover:   #40204F;
+  --primary-soft:    #EFE6F2;
+  --text-primary:    #29252B;
+  --text-secondary:  #76513E;
+  --text-muted:      #807771;
+  --border:          #D9D0CA;
+  --border-light:    #E8E0D8;
+  --neutral-accent:  #B9B0AA;
+  --warm-accent:     #C6A68E;
+  --focus-ring:      #59336D;
+
+  /* Functional status */
+  --success:  #166534;
+  --success-bg: #DCFCE7;
+  --warning:  #92400E;
+  --warning-bg: #FEF3C7;
+  --danger:   #B42332;
+  --danger-bg: #FEE2E2;
+  --info:     #365C85;
+  --info-bg:  #DBEAFE;
+  --neutral:  #625C65;
+
+  /* Radii */
+  --radius-sm:  6px;
+  --radius-md:  10px;
+  --radius-lg:  16px;
+  --radius-xl:  24px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(41,37,43,0.08), 0 1px 2px rgba(41,37,43,0.04);
+  --shadow-md: 0 4px 12px rgba(41,37,43,0.10), 0 2px 4px rgba(41,37,43,0.06);
+  --shadow-lg: 0 8px 24px rgba(41,37,43,0.12), 0 4px 8px rgba(41,37,43,0.06);
+
+  /* Transitions */
+  --transition: 150ms ease;
+}
+
+/* ── Dark theme ────────────────────────────────────────────────────────────── */
+[data-theme="dark"] {
+  --background:     #211C25;
+  --surface:        #302936;
+  --surface-muted:  #3A3141;
+  --primary:        #D3A8E3;
+  --primary-hover:  #E5C7EF;
+  --primary-soft:   #3D2E47;
+  --text-primary:   #F8F3F7;
+  --text-secondary: #D5C8D4;
+  --text-muted:     #A090A8;
+  --border:         #584D5E;
+  --border-light:   #4A3F52;
+  --focus-ring:     #E5C7EF;
+}
+
+/* ── Base reset & typography ───────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: var(--background);
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body { min-height: 100vh; }
+
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: none; }
+
+button, input, select, textarea { font: inherit; }
+
+img, svg { display: block; max-width: 100%; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+/* ── Focus visible ─────────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* ── Utility classes ───────────────────────────────────────────────────────── */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0;
+  margin: -1px; overflow: hidden; clip: rect(0,0,0,0);
+  white-space: nowrap; border: 0;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+/* ── Scrollbar (Webkit) ────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--pebble-base); border-radius: 99px; }
+
+/* ── Skip navigation link (accessibility) ─────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  font-weight: 600;
+  font-size: 14px;
+  z-index: 9999;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+.skip-link:focus { top: 0; }

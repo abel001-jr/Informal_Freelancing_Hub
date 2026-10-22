@@ -1,0 +1,125 @@
+.page {
+  width: 100%;
+}
+
+.header {
+  margin-bottom: 25px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.link {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+.link:hover { text-decoration: underline; }
+
+.alert {
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Side-by-side row */
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.registrationForm {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 12px 16px;
+}
+
+.registrationForm > .row,
+.registrationForm > .terms,
+.registrationForm > .submitRow {
+  grid-column: 1 / -1;
+}
+
+.form input,
+.form select {
+  min-height: 42px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  background-color: #f8f6f8;
+  border-color: #ede7ef;
+  border-radius: 8px;
+}
+
+.form > *,
+.row > * {
+  min-width: 0;
+}
+
+.forgot {
+  text-align: right;
+  margin-top: -8px;
+}
+
+.terms {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.termsChoice { display: flex; align-items: flex-start; gap: 9px; cursor: pointer; }
+.form .termsChoice input { width: 16px; height: 16px; min-height: 16px; padding: 0; margin: 2px 0 0; flex-shrink: 0; accent-color: var(--primary); }
+.termsError { color: var(--danger); font-size: 12px; margin-top: 6px; }
+
+.submit {
+  width: 100%;
+  margin-top: 4px;
+  min-height: 44px;
+  border-radius: 8px;
+  color: #ffffff;
+}
+
+.iconField { position: relative; }
+.fieldIcon { position: absolute; width: 18px; height: 18px; top: 36px; left: 14px; color: #59336d; pointer-events: none; z-index: 1; }
+.iconField input { padding-left: 43px; }
+.passwordField input { padding-right: 65px; }
+.passwordToggle { position: absolute; top: 29px; right: 8px; height: 35px; padding: 0 8px; background: none; border: 0; color: #59336d; font-size: 10px; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: .4px; }
+.accountDivider { display: flex; align-items: center; gap: 12px; margin: 24px 0 18px; color: #a393aa; font-size: 10px; }
+.accountDivider::before, .accountDivider::after { content: ''; height: 1px; background: #e8e0ec; flex: 1; }
+.secondaryAction { display: flex; align-items: center; justify-content: center; gap: 14px; border: 1px solid #d9cce0; border-radius: 8px; padding: 12px; font-size: 12px; font-weight: 600; color: #59336d; background: white; }
+.secondaryAction:hover { background: #f7f1fa; }
+
+/* Animated button row — centers the ActionButton on auth forms */
+.submitRow {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 4px;
+}
+
+@media (max-width: 480px) {
+  .title { font-size: 25px; }
+  .subtitle { font-size: 12px; }
+  .header { margin-bottom: 16px; }
+  .registrationForm, .row { gap: 10px; }
+  .form input, .form select { font-size: 16px; padding-left: 10px; }
+  .iconField input { padding-left: 43px; }
+}
+
+@media (max-width: 350px) {
+  .registrationForm, .row { grid-template-columns: 1fr; }
+}
